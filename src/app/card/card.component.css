@@ -1,0 +1,40 @@
+.card
+{
+	padding: 10px;
+	border: solid 1px #808080;
+	background-color: white;
+	display: inline-block;
+	border-radius: 10px;
+	font-size: 14pt;
+	text-align: center;
+	color:black;
+	margin: 3px;
+}
+
+.card .rank{
+	font-size:15pt;
+	font-family: sans-serif;
+}
+
+.card .img
+{
+	background-image: url('../../assets/card.png');
+	height: 100px;
+	width: 90px;
+}
+
+.card .Diamond
+{
+	background-position-y: 100px;
+}
+
+.card .Heart
+{
+	background-position-x: 90px;
+}
+
+.card .Club
+{
+	background-position-x:90px;
+	background-position-y:100px;
+}
