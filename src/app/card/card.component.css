@@ -6,7 +6,7 @@
 	display: inline-block;
 	border-radius: 10px;
 	font-size: 14pt;
-	text-align: center;
+	text-align: left;
 	color:black;
 	margin: 3px;
 }
@@ -16,24 +16,24 @@
 	font-family: sans-serif;
 }
 
-.card .img
+.card .card-img
 {
 	background-image: url('../../assets/card.png');
 	height: 100px;
 	width: 90px;
 }
 
-.card .Diamond
+.card .diamonds
 {
 	background-position-y: 100px;
 }
 
-.card .Heart
+.card .hearts
 {
 	background-position-x: 90px;
 }
 
-.card .Club
+.card .clubs
 {
 	background-position-x:90px;
 	background-position-y:100px;

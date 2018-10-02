@@ -2,17 +2,19 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { FilterService } from './filter.service';
 import { Filter } from './filter';
+import { Card } from './card';
+import { Suit } from './suit';
+import { Rank } from './rank';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DrawService {
 
-  filter : Filter = new Filter();
-  draw = [];
+  private filter : Filter = new Filter();
+  private draw : Card[] = [];
 
   constructor(private filterService: FilterService) {
-    this.getDraw();
   }
 
   getFilter(): void {
@@ -21,10 +23,11 @@ export class DrawService {
   }
 
   initDeck() {
+    let card : Card;
     for(let deck = 0; deck < this.filter.ndeck; deck++) {
-      for(let suit = 0; suit < this.filter.suits.length; suit++) {
-        for(let rank = this.filter.min; rank <= this.filter.max; rank++) {
-          let card = {deck: deck, rank: rank, suit: this.filter.suits[suit]};
+      for(let suit:Suit = 0; suit < this.filter.suits.length; suit++) {
+        for(let rank:Rank = this.filter.min; rank <= this.filter.max; rank++) {
+          card = new Card(deck, this.filter.suits[suit], rank);
           this.draw.push(card);
         }
       }
@@ -45,7 +48,7 @@ export class DrawService {
     }
   }
 
-  getDraw(): Observable<Event[]> {
+  getDraw(): Observable<Card[]> {
     this.draw = [];
     this.getFilter();
     this.initDeck();

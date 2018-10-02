@@ -16,10 +16,14 @@ export class FilterService {
   
   constructor() { 
     this.filter.ndeck = 1;
-    this.filter.suits = [Suit.Spade, Suit.Heart, Suit.Club, Suit.Diamond];
+    this.filter.suits = [];
+    for(let suit:Suit = 0; suit < this.nSuit; suit++) {
+      this.filter.suits.push(suit);
+    }
+    
     this.filter.size = this.nRank * this.nSuit;
-    this.filter.min = Rank.Two;
-    this.filter.max = Rank.Ace;
+    this.filter.min = Rank._2;
+    this.filter.max = Rank._A;
   }
 
   getFilter(): Observable<Filter> {

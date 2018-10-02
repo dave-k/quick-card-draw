@@ -4,6 +4,7 @@ import { Rank } from './rank';
 import { Filter } from './filter';
 import { FilterService } from './filter.service';
 import { DrawService } from './draw.service';
+import { Card } from './card';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,8 @@ export class AppComponent {
   min: Rank;
   max: Rank;
 
-  hand = [];
-  draw = [];
+  hand: Card[] = [];
+  draw: Card[] = [];
   filter : Filter = new Filter();
   suits : {id: number; suit: string}[] = [];
   deck : {rank: number; card: string}[] = [];
@@ -48,7 +49,7 @@ export class AppComponent {
 
     for(var n in Rank) {
       if (typeof Rank[n] === 'number') {
-        this.deck.push({rank: <any>Rank[n], card: n}); 
+        this.deck.push({rank: <any>Rank[n], card: n.substr(1)}); 
       }
     }
   }
@@ -120,5 +121,8 @@ export class AppComponent {
     for(let i = 0; i < this.filter.size; i++) {
       this.hand.push(this.draw[i]);
     }
+    
+    this.hand
+      .sort((card1, card2) => Card.sort(card1, card2));
   }
 }

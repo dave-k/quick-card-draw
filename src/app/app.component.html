@@ -56,8 +56,8 @@
   </form>
 
   <div class="row">
-    <div id="" class="col-md-2 col-xs-3" *ngFor="let card of hand">
-        <div><app-card suit={{Suit[card.suit]}} rank={{Rank[card.rank]}}></app-card></div>
+    <div id="" class="col-md-1 col-xs-1" *ngFor="let card of hand">
+        <div><app-card suit={{card.suit}} rank={{card.rank}}></app-card></div>
     </div>
   </div>
 </div>
