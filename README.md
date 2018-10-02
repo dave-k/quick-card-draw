@@ -1,6 +1,6 @@
 # Quick Card Draw
 
-[Demo] (http://quick-card-draw.s3-website-us-east-1.amazonaws.com/)
+[Demo](http://quick-card-draw.s3-website-us-east-1.amazonaws.com/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
 
