@@ -10,9 +10,9 @@ import { Rank } from './rank';
 export class FilterService {
 
   private filter : Filter = new Filter();
-
-  private nSuit : number = Object.keys(Suit).length / 2;
-  private nRank : number = Object.keys(Rank).length / 2;
+  
+  private nSuit : number = 4;
+  private nRank : number = 13;
   
   constructor() { 
     this.filter.ndeck = 1;

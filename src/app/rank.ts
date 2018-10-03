@@ -13,3 +13,10 @@ export enum Rank {
   _K,
   _A
 }
+
+export namespace Rank {
+  export function toString(rank) {
+    // _2 .. _A -> 2 .. A
+    return Rank[rank].substr(1);
+  }
+}

@@ -41,15 +41,17 @@ export class AppComponent {
     this.min = this.filter.min;
     this.max = this.filter.max;
 
+    // Suit dropdown
     for(var n in Suit) {
       if (typeof Suit[n] === 'number') {
         this.suits.push({id: <any>Suit[n], suit: n});
       }
     }
 
+    // Max and Min Card dropdown
     for(var n in Rank) {
       if (typeof Rank[n] === 'number') {
-        this.deck.push({rank: <any>Rank[n], card: n.substr(1)}); 
+        this.deck.push({rank: <any>Rank[n], card: Rank.toString(Rank[n])}); 
       }
     }
   }

@@ -5,13 +5,13 @@ export class Card {
   private deck: number;     // 1
   private suit: string;     // clubs ... 
   private rank: string;     // _2 .. _A
-  private rankId: Rank;     // 0 .. 12
+  private rankId: Rank;     // sort order
 
   constructor(deck: number, suit: Suit, rank: Rank) { 
     this.deck = deck;
-    this.suit = Suit[suit]; 
-    this.rankId = rank;                 
-    this.rank = Rank[rank].substr(1);   // Rank[0] = _2
+    this.suit = Suit[suit];
+    this.rankId = rank;   
+    this.rank = Rank.toString(rank);   // _2 .. _A -> 2 .. A
   }
 
   static sort(card1: Card, card2: Card) {
