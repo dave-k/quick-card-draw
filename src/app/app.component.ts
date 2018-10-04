@@ -121,7 +121,7 @@ export class AppComponent {
       .subscribe(draw => this.draw = draw);
 
     for(let i = 0; i < this.filter.size; i++) {
-      this.hand.push(this.draw[i]);
+      this.hand.push(<Card>this.draw[i]);
     }
     
     this.hand
