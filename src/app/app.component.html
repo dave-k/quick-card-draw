@@ -6,59 +6,6 @@
 </div>
 <div class="container">
   <h1>Quick Draw</h1>
-  <form #userForm="ngForm">
-
-    <div class="form-group row">
-      <div class="col-xs-2">
-        <label for="suits">Suit(s)</label>
-        <select class="form-control" multiple id="suits" (change)="parseSuit($event.target.value, userForm)"
-          required
-          [(ngModel)]="filter.suits" name="suits" 
-          #suit="ngModel">
-          <option *ngFor="let suit of suits" [value]="suit.id">{{suit.suit}}</option>
-        </select>
-      </div>
-  
-      <div class="col-xs-2">
-        <label for="size">Hand Size</label>
-        <input type="number" min="0" class="form-control" id="size" (change)="parseSize($event.target.value)"
-                required
-                [(ngModel)]="filter.size" name="size"
-                #size="ngModel">
-      </div>
-   
-      <div class="col-xs-2">
-        <label for="maxCard">Max Card</label>
-        <select class="form-control" id="max" (change)="parseMax($event.target.value)"
-              required
-              [(ngModel)]="filter.max" name="max"
-              #max="ngModel">
-          <option *ngFor="let card of deck" [value]="card.rank">{{card.card}}</option>
-        </select>
-      </div>
-
-      <div class="col-xs-2">
-        <label for="minCard">Min Card</label>
-        <select class="form-control" id="min" (change)="parseMin($event.target.value)"
-              required
-              [(ngModel)]="filter.min" name="min"
-              #min="ngModel">
-          <option *ngFor="let card of deck" [value]="card.rank">{{card.card}}</option>
-        </select>
-      </div>
-
-      <div class="col-xs-1">
-          <label for="">&nbsp;&nbsp;&nbsp;&nbsp;</label>
-          <button (click)="onQuickDraw()" type="submit" class="btn btn-success">Draw</button>
-      </div>
-    </div>
-
-  </form>
-
-  <div class="row">
-    <div id="" class="col-md-1 col-xs-1" *ngFor="let card of hand">
-        <div><app-card [card]="card"></app-card></div>
-    </div>
-  </div>
 </div>
 
+<app-filter></app-filter>

@@ -8,7 +8,7 @@ import { Card } from '../card';
 })
 export class CardComponent implements OnInit {
   @Input() 
-  public card: Card;
+  private card: Card;
 
   constructor() { }
 

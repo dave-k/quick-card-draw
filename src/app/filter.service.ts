@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+
 import { Filter } from './filter';
 import { Suit } from './suit';
 import { Rank } from './rank';
@@ -21,12 +23,20 @@ export class FilterService {
       this.filter.suits.push(suit);
     }
     
-    this.filter.size = this.nRank * this.nSuit;
-    this.filter.min = Rank._2;
-    this.filter.max = Rank._A;
+    this.filter.size = 5;
+    this.filter.rank['min'] = Rank._2;
+    this.filter.rank['max'] = Rank._A;
   }
 
   getFilter(): Observable<Filter> {
-    return of(this.filter);
+    return of<Filter>(this.filter);
+  }
+
+  loadFilter(): Observable<Filter> {
+    return of<Filter>(this.filter).pipe(delay(20));
+  }
+
+  updateFilter(filter:Filter) {
+    this.filter = filter;
   }
 }

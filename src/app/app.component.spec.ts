@@ -1,16 +1,18 @@
 import { TestBed, async } from '@angular/core/testing';
+import { ReactiveFormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
-import { FormsModule }   from '@angular/forms';
 import { CardComponent } from './card/card.component';
+import { FilterComponent } from './filter/filter.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        CardComponent
+        CardComponent,
+        FilterComponent
       ],
-      imports: [FormsModule],
+      imports: [ReactiveFormsModule],
     }).compileComponents();
   }));
   

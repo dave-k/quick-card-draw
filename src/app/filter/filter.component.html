@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <form *ngIf="filter | async; else loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="col-xs-2">
+            <label for="suit">
+              Suit(s)
+              <select formControlName="suits" multiple class="form-control" id="suit" required>
+                <option *ngFor="let s of suits" [value]="s.id">{{s.suit}}</option>
+              </select>
+            </label>
+            <div class="error" *ngIf="form.get('suits').hasError('required')">
+              Suit(s) required
+            </div>
+          </div>
+          
+          <div class="col-xs-2">
+            <label>
+              Hand Size
+              <input id="size" class="form-control" min="0" formControlName="size" required>
+            </label>
+            <div class="error" *ngIf="form.get('size').hasError('min') || form.get('size').hasError('required')">
+              Size lt 1
+            </div>
+            <div class="error" *ngIf="form.hasError('size')">
+              Size &gt; card count
+            </div>
+          </div>
+        
+          <div formGroupName="rank">
+            <div class="col-xs-2">
+              <label>
+                Max Card
+                <select formControlName="max" class="form-control">
+                  <option *ngFor="let card of deck" [value]="card.rank">{{card.card}}</option>
+                </select>
+              </label>
+              <div class="error" *ngIf="form.get('rank').hasError('rank')">
+                Max &lt; Min
+              </div>
+            </div>
+          
+            <div class="col-xs-2">
+              <label>
+                Min Card
+                <select formControlName="min" class="form-control">
+                  <option *ngFor="let card of deck" [value]="card.rank">{{card.card}}</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        
+          <div class="col-xs-1">
+            <label for=""></label>
+            <button type="submit" [disabled]="!form.valid" class="btn btn-success">Draw</button>
+        </div>
+        </form>
+    </div>
+  
+    <div class="row">
+      <ng-template #loading>
+        Loading Filter...
+      </ng-template>
+
+      <div class="row">
+        <div id="" class="col-md-1 col-xs-1" *ngFor="let card of hand">
+            <div><app-card [card]="card"></app-card></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

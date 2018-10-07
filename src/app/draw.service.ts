@@ -26,7 +26,7 @@ export class DrawService {
     let card : Card;
     for(let deck = 0; deck < this.filter.ndeck; deck++) {
       for(let suit:Suit = 0; suit < this.filter.suits.length; suit++) {
-        for(let rank:Rank = this.filter.min; rank <= this.filter.max; rank++) {
+        for(let rank:Rank = this.filter.rank['min']; rank <= this.filter.rank['max']; rank++) {
           card = new Card(deck, this.filter.suits[suit], rank);
           this.draw.push(card);
         }
