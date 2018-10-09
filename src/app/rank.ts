@@ -19,4 +19,13 @@ export namespace Rank {
     // _2 .. _A -> 2 .. A
     return Rank[rank].substr(1);
   }
+
+  export function options() {
+    let options = [];
+    
+    for(var r =0; r < 13; ++r) { 
+      options.push( {rank: <any>r, card: Rank.toString(r)} ); 
+    }
+    return options;
+  }
 }

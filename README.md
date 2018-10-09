@@ -1,6 +1,9 @@
 # Quick Card Draw
 
-[Demo](http://quick-card-draw.s3-website-us-east-1.amazonaws.com/)
+### View demo hosted on : 
+[Amazon S3](http://quick-card-draw.s3-website-us-east-1.amazonaws.com/)
+
+[Github ghpages](https://dave-k.github.io/quick-card-draw/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
 

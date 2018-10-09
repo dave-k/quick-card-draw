@@ -47,18 +47,10 @@ export class FilterComponent implements OnInit {
       tap(filter => this.form.patchValue(filter)));
 
     // Suit dropdown
-    for(var n in Suit) {
-      if (typeof Suit[n] === 'number') {
-        this.suits.push({id: <any>Suit[n], suit: n});
-      }
-    }
-
+    this.suits = Suit.options();
+    
     // Max and Min Card dropdown
-    for(var n in Rank) {
-      if (typeof Rank[n] === 'number') {
-        this.deck.push({rank: <any>Rank[n], card: Rank.toString(Rank[n])}); 
-      }
-    }
+    this.deck = Rank.options();
   }
 
   onSubmit() {
